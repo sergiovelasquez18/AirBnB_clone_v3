@@ -71,22 +71,20 @@ class FileStorage:
 
     def get(self, cls, id):
         "A method to retrieve one object:"
-        try:
-            obj = {}
-            if cls:
-                obj = self.__session.query(self.CNC.get(cls)).all()
-                for item in obj:
-                    obj[item.id] = item
-            return obj[id]
-        except:
+        if cls is not None and id is not None:
+            for objs in self.all(cls).values():
+                if objs.id == id:
+                    return objs
+        else:
             return None
 
     def count(self, cls=None):
         "method to count the number of objects in storage"
         if cls is not None:
-            try:
-                return len(self.all(classes[cls]))
-            except:
-                return None
+            objs = self.all().values():
+            lenght = len(objs)
+        
         else:
-            return len(self.all())
+            objs = self.all(cls).values():
+            lenght = len(objs)
+        return lenght
