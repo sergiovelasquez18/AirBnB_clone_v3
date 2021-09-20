@@ -6,9 +6,10 @@ view doct
 from api.v1.views import app_views
 from flask import Flask
 from flask import jsonify
+from models import storage
 
 
-@app_view.route('/status')
+@app_view.route('/status', strict_slashes=false)
 def status():
     """
     Return json status code
