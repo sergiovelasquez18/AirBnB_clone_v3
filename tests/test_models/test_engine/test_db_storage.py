@@ -66,7 +66,19 @@ test_db_storage.py'])
                              "{:s} method needs a docstring".format(func[0]))
             self.assertTrue(len(func[1].__doc__) >= 1,
                             "{:s} method needs a docstring".format(func[0]))
+    def test_doc_get(self):
+        """... documentation for get function"""
+        expected = ' retrieves one object '
+        actual = DBStorage.get.__doc__
+        self.assertEqual(expected, actual)
 
+    def test_doc_count(self):
+        """... testing length version of count function
+        """
+        expected = 293
+        actual = len(DBStorage.count.__doc__)
+        self.assertEqual(expected, actual)
+    
 
 class TestFileStorage(unittest.TestCase):
     """Test the FileStorage class"""
@@ -86,3 +98,25 @@ class TestFileStorage(unittest.TestCase):
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_save(self):
         """Test that save properly saves objects to file.json"""
+
+    def test_get(self):
+        """check if get method returns state"""
+        real_state = storage.get("State", self.state.id)
+        fake_state = storage.get("State", "12345")
+        no_state = storage.get("", "")
+
+        self.assertEqual(real_state, self.state)
+        self.assertNotEqual(fake_state, self.state)
+        self.assertIsNone(no_state)
+
+    def test_count(self):
+        """checks if count method returns correct numbers"""
+        state_count = storage.count("State")
+        city_count = storage.count("City")
+        place_count = storage.count("Place")
+        all_count = storage.count("")
+
+        self.assertEqual(state_count, 3)
+        self.assertEqual(city_count, 4)
+        self.assertEqual(place_count, 0)
+        self.assertEqual(all_count, 7)
