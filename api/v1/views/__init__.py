@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-	view doct
+view doct
 """
 from flask import Blueprint
 from api.v1.views.index import *
