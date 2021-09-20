@@ -9,7 +9,7 @@ from flask import jsonify
 from models import storage
 
 
-@app_view.route('/status', strict_slashes=false)
+@app_views.route('/status', strict_slashes=False)
 def status():
     """
     Return json status code
