@@ -151,7 +151,6 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb) quit
 ```
 
-
 ## Authors
 Sergio Velasquez - [Github](https://github.com/sergiovelasquez18/) / [Twitter](https://twitter.com/zergiovc)  
 Maria Fernanda Lopez A - [Github](https://github.com/ferchislopez0910) / [Twitter](https://twitter.com/ferchislopez0910)
