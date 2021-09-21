@@ -12,7 +12,7 @@ from api.v1.views import app_views
 @app_views.route('/states', strict_slashes=False)
 def lsStates():
     """
-
+    Return a list with dict
     """
     lstates = []
     for key, value in storage.all('State').items():
