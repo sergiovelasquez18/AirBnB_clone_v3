@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Create API
+script that start a flask web application
 """
 from flask import Flask, make_response
 from flask.json import jsonify
