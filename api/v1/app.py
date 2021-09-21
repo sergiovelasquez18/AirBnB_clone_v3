@@ -20,6 +20,7 @@ def close(error):
     """
     storage.close()
 
+
 @app.errorhandler(404)
 def page_not_found(err):
     """error handling, 404"""
